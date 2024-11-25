@@ -8,7 +8,7 @@ Below more information on the project structure and functionality found in each 
    * * [ERD of relational database XML](docs/ERD.drawio)
 
 
- * [main.py](./main.py) - start of application, calling all functionalies requested
+ * [main.py](./main.py) - start of application, calling all functionalities requested
  * [scraper.py](./scraper.py) - Retrieves json data from provided url and writes it to json format in memory
  * [parser.py](./parser.py) - Retrieves the desired datapoints from the collected json data and provides the option to define default values
  * [database.py](./database.py) - Creates a database if it does not yet exist. Also provides functions to interact with the database
@@ -35,10 +35,10 @@ If there is some cloud platform / serverless service available, one can use said
 If the client has an in-house server, the script can be run from there. For example, if they run a linux server the script can be schedules as described [here](https://www.geeksforgeeks.org/scheduling-python-scripts-on-linux/)
 
 
-Some conciderations depending on the requirements from the client:
+Some consideration depending on the requirements from the client:
 
 **How long will this service run for?** \
-An important question is how long the client expects to use this service. Each time the data is updated, the measurements table grows a with ~40 records (120 records a day, 43800 records a year). Even with millions of records, sql should keep working efficiently which means this script can run for more then 50 years.
+An important question is how long the client expects to use this service. Each time the data is updated, the measurements table grows a with ~40 records (120 records a day, 43800 records a year). Even with millions of records, sql should keep working efficiently which means this script can run for more than 50 years.
 
 **Can the posted data change within a time slot** \
 The script currently can only retrieve the data once in a time slot. If the script is run again within a time slots, the datapoints are not updated. If the client expects the data to change within a time slot, this could have consequences for how often the script needs to be run as well as the functionality of the script.

@@ -5,7 +5,7 @@ def get_highest_temperature_station(conn) -> str:
     query =     """
     SELECT stationname    
     from measurements
-    LEFT JOIN main.wheather_stations ws on ws.stationid = measurements.stationid
+    LEFT JOIN main.weather_stations ws on ws.stationid = measurements.stationid
     ORDER BY
     temperature DESC
     LIMIT 1
@@ -31,7 +31,7 @@ def get_max_temp_deviation(conn) -> str:
     , ABS(feeltemperature - temperature) as temperature_diff
         
     from measurements
-    LEFT JOIN main.wheather_stations ws on ws.stationid = measurements.stationid
+    LEFT JOIN main.weather_stations ws on ws.stationid = measurements.stationid
     ORDER BY
     temperature_diff DESC
     LIMIT 1
@@ -44,7 +44,7 @@ def get_station_in_region(conn, region) -> str:
     query = """
     SELECT stationname
     
-    from wheather_stations
+    from weather_stations
     WHERE regio=?
     
         """.format(region)

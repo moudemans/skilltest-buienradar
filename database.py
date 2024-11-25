@@ -5,7 +5,7 @@ database = 'buienradar.db'
 
 startup_statements = [
 
-    """CREATE TABLE IF NOT EXISTS wheather_stations (
+    """CREATE TABLE IF NOT EXISTS weather_stations (
             stationid INT       PRIMARY KEY
             , stationname STRING NOT NULL 
             , lat FLOAT 
@@ -26,7 +26,7 @@ startup_statements = [
             , sunpower     INT
             , stationid      INTEGER NOT NULL
             , PRIMARY KEY (stationid, timestamp)
-            , FOREIGN KEY (stationid) REFERENCES wheather_stations(stationid) ON DELETE CASCADE ON UPDATE CASCADE
+            , FOREIGN KEY (stationid) REFERENCES weather_stations(stationid) ON DELETE CASCADE ON UPDATE CASCADE
         );"""
 
 ]
@@ -51,7 +51,7 @@ def start():
 
 
 def add_weather_station(conn, station):
-    sql = '''INSERT OR IGNORE  INTO wheather_stations(stationid, stationname, lat, lon, regio)
+    sql = '''INSERT OR IGNORE  INTO weather_stations(stationid, stationname, lat, lon, regio)
                  VALUES(?,?,?,?,?) '''
 
     # create a cursor
@@ -104,7 +104,6 @@ def add_weather_station_measurements(conn, weather_station_measurements):
 
 def execute_read_query(connection, query):
     cursor = connection.cursor()
-    result = None
     try:
         cursor.execute(query)
         result = cursor.fetchall()
@@ -114,7 +113,6 @@ def execute_read_query(connection, query):
 
 def execute_read_query_with_param(connection, query, params = ()):
     cursor = connection.cursor()
-    result = None
     try:
         cursor.execute(query, params)
         result = cursor.fetchall()
