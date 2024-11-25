@@ -1,19 +1,19 @@
 # This is a sample Python script.
 import scraper
+import json
 
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    scraped_data = scraper.scrape()
+    # Scrape data
+    scraped_data: json = scraper.scrape()
     print(scraped_data)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    # Extract required datasets
+
+    # Create database
+
+    # Insert data in database
+
+
