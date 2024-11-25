@@ -18,7 +18,7 @@ Below more information on the project structure and functionality found in each 
 ## Part 1
 
 Todo:
-- indexing tables on most used columns dependent on Part 3 -> This is very depending on the types of queries used most. It does not make sense to index continous values. Just as an example I will place an index on the station name, as that would be a potentially useful. 
+- indexing tables on most used columns dependent on Part 3 -> This is very depending on the types of queries used most. It does not make sense to index continous values.  
 
 
 ## Part 2

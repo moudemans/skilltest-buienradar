@@ -1,5 +1,4 @@
 import json
-import uuid
 
 
 # Function extracts relevant datapoints from provided json argument.
@@ -36,7 +35,7 @@ def parse_json(scraped_data: json):
     for measurement in weather_station_measurements_json:
         tmp_holder = {}
 
-        # TODO: create measurement id in table? or have a central counter..
+        # TODO: Case stated no measurement ID was available, but this does appear in the data. Get more information on the id
         tmp_holder["measurementid"] =   measurement.get("$id")
 
         # TODO: What to do with missing values? , there are None values
