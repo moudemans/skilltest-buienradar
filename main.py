@@ -1,4 +1,5 @@
 # This is a sample Python script.
+import parser
 import scraper
 import json
 
@@ -11,6 +12,9 @@ if __name__ == '__main__':
     print(scraped_data)
 
     # Extract required datasets
+    weather_station_measurement, weather_stations = parser.parse_json(scraped_data)
+    print(weather_station_measurement)
+    print(weather_stations)
 
     # Create database
 
