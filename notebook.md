@@ -1,0 +1,4 @@
+# Notes during assignment
+
+
+Todo:
