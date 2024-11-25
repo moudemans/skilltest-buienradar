@@ -14,7 +14,7 @@ startup_statements = [
     
         );""",
     """CREATE TABLE IF NOT EXISTS measurements (
-            measurementid integer primary key AUTOINCREMENT
+            measurementid integer 
             , timestamp DATETIME  NOT NULL
             , temperature FLOAT 
             , groundtemperature FLOAT
@@ -25,6 +25,7 @@ startup_statements = [
             , precipitation    INT
             , sunpower     INT
             , stationid      INTEGER NOT NULL
+            , PRIMARY KEY (stationid, timestamp)
             , FOREIGN KEY (stationid) REFERENCES wheather_stations(stationid) ON DELETE CASCADE ON UPDATE CASCADE
         );"""
 
@@ -47,7 +48,6 @@ def start():
 
     except sqlite3.OperationalError as e:
         print("Failed to open database:", e)
-        sqlite3.rollback()
 
 
 def add_weather_station(conn, station):
@@ -72,14 +72,15 @@ def add_weather_stations(conn, weather_stations: json):
 
 
 def add_weather_station_measurement(conn, measurement):
-    sql = '''INSERT  OR IGNORE  INTO measurements(  timestamp, temperature, groundtemperature, feeltemperature, windgusts, windspeedBft, humidity, precipitation, sunpower, stationid) 
-                 VALUES(?,?,?,?,?,?,?,?,?,?) '''
+    sql = '''INSERT  OR IGNORE  INTO measurements( measurementid, timestamp, temperature, groundtemperature, feeltemperature, windgusts, windspeedBft, humidity, precipitation, sunpower, stationid) 
+                 VALUES(?,?,?,?,?,?,?,?,?,?,?) '''
 
     # create a cursor
     cur = conn.cursor()
 
     # execute the INSERT statement
     values = [
+        measurement["measurementid"],
         measurement["timestamp"],
         measurement["temperature"],
         measurement["groundtemperature"],

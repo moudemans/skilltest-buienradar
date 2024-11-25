@@ -37,7 +37,7 @@ def parse_json(scraped_data: json):
         tmp_holder = {}
 
         # TODO: create measurement id in table? or have a central counter..
-        tmp_holder["measurementid"] = uuid.uuid4()
+        tmp_holder["measurementid"] =   measurement.get("$id")
 
         # TODO: What to do with missing values? , there are None values
         tmp_holder["timestamp"] = measurement.get("timestamp")
