@@ -1,6 +1,6 @@
 import database
 
-
+# Selects station from stations table where the [temperature] in the measurements table is highest
 def get_highest_temperature_station(conn) -> str:
     query =     """
     SELECT stationname    
@@ -14,6 +14,7 @@ def get_highest_temperature_station(conn) -> str:
 
     return database.execute_read_query(conn, query)[0][0]
 
+# Calculates the average temperature in the measurements table
 def get_average_temp(conn) -> str:
     query =     """
     SELECT AVG(temperature)    
@@ -23,6 +24,7 @@ def get_average_temp(conn) -> str:
 
     return database.execute_read_query(conn, query)[0][0]
 
+# Calculates the maximum temperature difference between the columns [feeltemperature] and [temperature]
 def get_max_temp_deviation(conn) -> str:
     query =     """
     SELECT stationname
@@ -37,6 +39,7 @@ def get_max_temp_deviation(conn) -> str:
     return database.execute_read_query(conn, query)[0]
 
 
+#  Returns all stations in the region provided in function parameters
 def get_station_in_region(conn, region) -> str:
     query = """
     SELECT stationname
