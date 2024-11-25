@@ -101,3 +101,13 @@ def add_weather_station_measurement(conn, measurement):
 def add_weather_station_measurements(conn, weather_station_measurements):
     for measurement in weather_station_measurements:
         add_weather_station_measurement(conn, measurement)
+
+def execute_read_query(connection, query):
+    cursor = connection.cursor()
+    result = None
+    try:
+        cursor.execute(query)
+        result = cursor.fetchall()
+        return result
+    except sqlite3.Error as e:
+        print(f"The error '{e}' occurred")
