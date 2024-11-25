@@ -1,13 +1,32 @@
-# Notes during assignment
-https://jsonformatter.org/json-viewer
+# Project structure
+Below more information on the project structure and functionality found in each scripts
+.
+ * [docs](./docs)
+   * [ERD of relational database (dark)](docs/buienradar_ERD_dark.drawio.png)
+   * [ERD of relational database (light)](docs/buienradar_ERD_light.drawio.png)
+   * [ERD of relational database XML](docs/ERD.drawio)
+   * * [ERD of relational database XML](docs/ERD.drawio)
 
+
+ * [main.py](./main.py) - start of application, calling all functionalies requested
+ * [scraper.py](./scraper.py) - Retrieves json data from provided url and writes it to json format in memory
+ * [parser.py](./parser.py) - Retrieves the desired datapoints from the collected json data and provides the option to define default values
+ * [database.py](./database.py) - Creates a database if it does not yet exist. Also provides functions to interact with the database
+ * [viewer.py](./viewer.py) - Retrieves specific data from database, contains hardcoded queries
+
+# Assignment notes
+## Part 1
 
 Todo:
-- check SQL queries, improve on the format / how it is stored
-- Check typing and relationships of sql tables
-- indexing tables on most used columns
-- new values for stations
+- indexing tables on most used columns dependent on Part 3 -> This is very depending on the types of queries used most. It does not make sense to index continous values. Just as an example I will place an index on the station name, as that would be a potentially useful. 
 
+
+## Part 2
+
+Q5 Which weather station recorded the highest temperature? =  Meetstation Arcen \
+Q6 What is the average temperature? =  11.288571428571423 \
+Q7 What is the station with the biggest difference between feel temperature and the actual temperature? =  'Meetstation Zeeplatform F-3' \
+Q8 Which weather station is located in the North Sea? =  'Meetstation Zeeplatform F-3'
 # Question 3
 The script written for part 1 needs to be called every 20 minutes. Whether the data needs to be polled exactly when it is posted, or somewhere in the timeslot is up to the client. The schedule can be created s.t. it runs every 20 minutes or let it run on specific times on a day (which most likely means more configuration work). Depending on the resources available from the client there are a few possibilities:
 
