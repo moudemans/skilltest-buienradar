@@ -28,7 +28,7 @@ if __name__ == '__main__':
 
     ## PART 2
     highest_temp_station = viewer.get_highest_temperature_station(conn)
-
+    print("Q5 Which weather station recorded the highest temperature? = ", highest_temp_station)
 
 
     conn.close()
