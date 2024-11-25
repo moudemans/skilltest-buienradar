@@ -25,6 +25,7 @@ import uuid
 #             },
 #             ...
 
+# TODO: Create data objects from extracted values
 def parse_json(scraped_data: json):
     weather_station_measurements = []
     weather_stations = {}

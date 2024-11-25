@@ -1,4 +1,5 @@
 # This is a sample Python script.
+import database
 import parser
 import scraper
 import json
@@ -17,7 +18,7 @@ if __name__ == '__main__':
     print(weather_stations)
 
     # Create database
-
+    database.start()
     # Insert data in database
 
 
