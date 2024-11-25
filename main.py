@@ -18,7 +18,11 @@ if __name__ == '__main__':
     print(weather_stations)
 
     # Create database
-    database.start()
-    # Insert data in database
+    conn = database.start()
 
+    # Insert data in database
+    database.add_weather_stations(conn, weather_stations)
+    database.add_weather_station_measurements(conn, weather_station_measurement)
+
+    conn.close()
 
