@@ -29,6 +29,12 @@ if __name__ == '__main__':
     ## PART 2
     highest_temp_station = viewer.get_highest_temperature_station(conn)
     print("Q5 Which weather station recorded the highest temperature? = ", highest_temp_station)
+    highest_temp_station = viewer.get_average_temp(conn)
+    print("Q6 What is the average temperature? = ", highest_temp_station)
+
+    highest_temp_station = viewer.get_max_temp_deviation(conn)
+    print("Q7 What is the average temperature? = ", highest_temp_station)
+
 
 
     conn.close()
