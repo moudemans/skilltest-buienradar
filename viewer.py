@@ -36,3 +36,13 @@ def get_max_temp_deviation(conn) -> str:
         """
     return database.execute_read_query(conn, query)[0]
 
+
+def get_station_in_region(conn, region) -> str:
+    query = """
+    SELECT stationname
+    
+    from wheather_stations
+    WHERE regio=?
+    
+        """.format(region)
+    return database.execute_read_query_with_param(conn, query, (region,))[:][0]

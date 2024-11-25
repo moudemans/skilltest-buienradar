@@ -111,3 +111,13 @@ def execute_read_query(connection, query):
         return result
     except sqlite3.Error as e:
         print(f"The error '{e}' occurred")
+
+def execute_read_query_with_param(connection, query, params = ()):
+    cursor = connection.cursor()
+    result = None
+    try:
+        cursor.execute(query, params)
+        result = cursor.fetchall()
+        return result
+    except sqlite3.Error as e:
+        print(f"The error '{e}' occurred")
